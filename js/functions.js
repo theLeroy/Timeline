@@ -4,3 +4,9 @@ function addDays(date, days) {
   result.setDate(result.getDate() + days);
   return result;
 }
+
+
+//Error functions
+function Errorfunction(text) {
+  alert(text);
+}
