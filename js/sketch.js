@@ -9,6 +9,13 @@ var oldestDateIndifier;
 var MidlelinePx; //Pixel wehre the midle Line is
 var DayLinesColor;
 var DayLinesWith;
+//Project Dots and Lines Config
+var ProjectTimeSpanWith; //Whith from Project/Timespan stroke in px
+var ProjectTimeSpanColor; //Colro from Project/Timespan stroke in hex
+var ProjectStartpointWith; //With from Project Point in px
+var ProjectStartpointColor;
+var ProjectEndpointColor;
+var ProjectEndpointWith;
 
 
 //Default Setings
@@ -17,6 +24,12 @@ LineHight = 100;
 MidlelinePx = 450;
 DayLinesColor = "bfbfbf";
 DayLinesWith = 1;
+ProjectTimeSpan = 5;
+ProjectTimeSpanColor = "51c18b"
+ProjectStartpointWith = 30;
+ProjectStartpointColor = "4085c7";
+ProjectEndpointWith = 30;
+ProjectEndpointColor = "7d47b3";
 
 
 function setup() {
@@ -97,8 +110,25 @@ function setup() {
     let d = Data[i]["StartDate"] - OldestDate;
     d = d/1000/60/60/24;
     noStroke();
-    ellipse((d*DayWith+(DayWith/2)), ypostion, 30, 30);
+    fill("#"+ProjectStartpointColor);
+    ellipse((d*DayWith+(DayWith/2)), ypostion, ProjectStartpointWith, ProjectStartpointWith);
 
+
+    //Get second Dot of Time Spans if not Milestone
+    if (Data[i]["StartDate"] != Data[i]["EndDate"]) {
+      let e = Data[i]["EndDate"] - OldestDate;
+      e = e/1000/60/60/24;
+      noStroke();
+      fill("#"+ProjectEndpointColor);
+      ellipse((e*DayWith+(DayWith/2)), ypostion, ProjectEndpointWith, ProjectEndpointWith);
+
+      //Connection line
+      stroke("#"+ProjectTimeSpanColor);
+      strokeWeight(ProjectTimeSpan);
+      line((e*DayWith+(DayWith/2)), ypostion, (d*DayWith+(DayWith/2)), ypostion);
+      noStroke();
+      strokeWeight(1);
+    }
   }
 
 }
