@@ -106,9 +106,22 @@ function setup() {
         }
       }
     }
-    //X Position
+    //X Position start Point
     let d = Data[i]["StartDate"] - OldestDate;
     d = d/1000/60/60/24;
+
+    //X Position end Point
+    let e = Data[i]["EndDate"] - OldestDate;
+    e = e/1000/60/60/24;
+
+    //Connection line
+    stroke("#"+ProjectTimeSpanColor);
+    strokeWeight(ProjectTimeSpan);
+    line((e*DayWith+(DayWith/2)), ypostion, (d*DayWith+(DayWith/2)), ypostion);
+    noStroke();
+    strokeWeight(1);
+
+
     noStroke();
     fill("#"+ProjectStartpointColor);
     ellipse((d*DayWith+(DayWith/2)), ypostion, ProjectStartpointWith, ProjectStartpointWith);
@@ -116,18 +129,9 @@ function setup() {
 
     //Get second Dot of Time Spans if not Milestone
     if (Data[i]["StartDate"] != Data[i]["EndDate"]) {
-      let e = Data[i]["EndDate"] - OldestDate;
-      e = e/1000/60/60/24;
       noStroke();
       fill("#"+ProjectEndpointColor);
       ellipse((e*DayWith+(DayWith/2)), ypostion, ProjectEndpointWith, ProjectEndpointWith);
-
-      //Connection line
-      stroke("#"+ProjectTimeSpanColor);
-      strokeWeight(ProjectTimeSpan);
-      line((e*DayWith+(DayWith/2)), ypostion, (d*DayWith+(DayWith/2)), ypostion);
-      noStroke();
-      strokeWeight(1);
     }
   }
 
@@ -138,5 +142,5 @@ function windowResized() {
 }
 
 function draw() {
-
+  
 }
