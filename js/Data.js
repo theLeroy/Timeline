@@ -74,8 +74,8 @@ var Data = [
   }, {
     ObjectId: 4,
     Type: "Milestone",
-    StartDate: 1931021068200,
-    EndDate: 1930521368800,
+    StartDate: 1930521368800,
+    EndDate: 1931021068200,
     LineId: "Ym2mHxQyFjOtJvrns6Lx",
     CreateChangeId: "f8ecc80977ada358175ee64d57dc11d072beb678",
     Active: true,

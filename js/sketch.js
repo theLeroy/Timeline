@@ -142,5 +142,7 @@ function windowResized() {
 }
 
 function draw() {
-  
+
 }
+
+//https://github.com/CodingTrain/website/tree/master/Tutorials/P5JS/p5.js/07/7.6_p5.js_checking_objects_intersection_1
