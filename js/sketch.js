@@ -95,7 +95,7 @@ function setup() {
       //Finde the corect line
       if (Data[i]["LineId"] == Lines[o]["LineId"]) {
         //Test if the line is up or down from normal
-        if (Lines[o]["Position"] < 100){
+        if (Lines[o]["Position"] < 100) {
           var ypostion = MidlelinePx - ((Lines[o]["Position"] - 100)*LineHight);
         } else if (Lines[o]["Position"] > 100) {
           var ypostion = MidlelinePx + ((100 - Lines[o]["Position"])*LineHight);
@@ -134,7 +134,6 @@ function setup() {
       ellipse((e*DayWith+(DayWith/2)), ypostion, ProjectEndpointWith, ProjectEndpointWith);
     }
   }
-
 }
 
 function windowResized() {
