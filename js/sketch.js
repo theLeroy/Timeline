@@ -16,7 +16,7 @@ var ProjectEndpointColor;
 var ProjectEndpointWith;
 
 MidlelinePx = 450; //Pixel wehre the midle Line is
-
+LineHight = 100; //Hight of line in px
 
   //Generate Daylines
   for (let i = 1; i < (yDate() - oDate()) / 86400000; i++) {
@@ -35,13 +35,19 @@ MidlelinePx = 450; //Pixel wehre the midle Line is
     } else {
       Errorfunction("We have got e problem with one Dot. We cant finde the Line wehre he has to go.");
     }
+    $(".L").append( '<div class="Lines" style="margin-top: '+ypostion+'px; background: #'+Lines[o]["BackgroundColor"]+'"></div>' );
   }
 
 
-  // //Dates top
-  // var ts = new Date(OldestDate);
-  // for (var p = 0; p < 100/DayWith; p++) {
-  //   // console.log(ts.toLocaleDateString());
+  //Dates top
+  var ts = new Date(oDate());
+  let p = 1;
+  $( ".DayLines" ).each(function() {
+    $(".DayLines:nth-child("+p+")").append( '<div class="DayDatesTop">'+ts.toLocaleDateString()+'</div>' );
+    ts = addDays(ts, 1);
+    p++;
+});
+
   //   noStroke();
   //   textSize(10);
   //   textAlign(CENTER);
@@ -49,8 +55,8 @@ MidlelinePx = 450; //Pixel wehre the midle Line is
   //   text(ts.toLocaleDateString(), (p*DayWith+(DayWith/2)), 30);
   //   ts = addDays(ts, 1);
   // }
-  //
-  //
+
+
   // //Dysplay dots at days
   // for (var i = 0; i < Data.length; i++) {
   //   //Y Position and Lines

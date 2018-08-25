@@ -23,3 +23,14 @@
   border-right-color: $DayLinesColor;
   border-right-style: solid;
 }
+.Lines {
+  height: $LineHight;
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+}
+.DayDatesTop {
+  text-align: center;
+  font-family: $fontseting;
+  font-size: 11px;
+}
