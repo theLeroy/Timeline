@@ -15,35 +15,29 @@ var ProjectStartpointColor;
 var ProjectEndpointColor;
 var ProjectEndpointWith;
 
+MidlelinePx = 450; //Pixel wehre the midle Line is
+
 
   //Generate Daylines
-  for (let i = 1; i < 100; i++) {
-    $(".C").append( '<div class="DayLines"></div>' );
+  for (let i = 1; i < (yDate() - oDate()) / 86400000; i++) {
+    $(".D").append( '<div class="DayLines"></div>' );
   }
-  //
-  // //Generate Lines
-  // for (var o = 0; o < Lines.length; o++) {
-  //   if (Lines[o]["Position"] < 100){
-  //     var ypostion = MidlelinePx + ((Lines[o]["Position"] - 100)*LineHight);
-  //   } else if (Lines[o]["Position"] > 100) {
-  //     var ypostion = MidlelinePx - ((100 - Lines[o]["Position"])*LineHight);
-  //   }  else if (Lines[o]["Position"] = 100) {
-  //     var ypostion = MidlelinePx;
-  //   } else {
-  //     Errorfunction("We have got e problem with one Dot. We cant finde the Line wehre he has to go.");
-  //   }
-  //
-  // }
-  //
-  // //Get oldest date
-  // OldestDate = Infinity;
-  // for (var i = 0; i < Data.length; i++) {
-  //   if (Data[i]["StartDate"] < OldestDate) {
-  //     OldestDate = Data[i]["StartDate"];
-  //     oldestDateIndifier = i;
-  //   }
-  // }
-  //
+
+
+  //Generate Lines
+  for (var o = 0; o < Lines.length; o++) {
+    if (Lines[o]["Position"] < 100){
+      var ypostion = MidlelinePx + ((Lines[o]["Position"] - 100)*LineHight);
+    } else if (Lines[o]["Position"] > 100) {
+      var ypostion = MidlelinePx - ((100 - Lines[o]["Position"])*LineHight);
+    }  else if (Lines[o]["Position"] = 100) {
+      var ypostion = MidlelinePx;
+    } else {
+      Errorfunction("We have got e problem with one Dot. We cant finde the Line wehre he has to go.");
+    }
+  }
+
+
   // //Dates top
   // var ts = new Date(OldestDate);
   // for (var p = 0; p < 100/DayWith; p++) {

@@ -17,6 +17,7 @@
 .DayLines {
   display: inline-block;
   width: $DayWith;
+  background: none;
   height: calc(100% - 5px);
   border-right-width: $DayLinesWith;
   border-right-color: $DayLinesColor;
