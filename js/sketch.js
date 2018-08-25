@@ -42,19 +42,12 @@ LineHight = 100; //Hight of line in px
   //Dates top
   var ts = new Date(oDate());
   let p = 1;
-  $( ".DayLines" ).each(function() {
+$( ".DayLines" ).each(function() {
     $(".DayLines:nth-child("+p+")").append( '<div class="DayDatesTop">'+ts.toLocaleDateString()+'</div>' );
     ts = addDays(ts, 1);
     p++;
 });
 
-  //   noStroke();
-  //   textSize(10);
-  //   textAlign(CENTER);
-  //   fill(0, 102, 153);
-  //   text(ts.toLocaleDateString(), (p*DayWith+(DayWith/2)), 30);
-  //   ts = addDays(ts, 1);
-  // }
 
 
   // //Dysplay dots at days
