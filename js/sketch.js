@@ -83,7 +83,8 @@ for (var i = 0; i < Data.length; i++) {
   // noStroke();
   // strokeWeight(1);
 
-    $(".DayLines#"+Lines[o]["LineId"]+"").append( '<div class="Dot_connecting_Line">'+ts.toLocaleDateString()+'</div>' );
+  $(".Lines#"+Lines[i]["LineId"]+"").append('<div class="Dot_connecting_Line"></div>');
+
 
 
 
@@ -91,6 +92,7 @@ for (var i = 0; i < Data.length; i++) {
   // noStroke();
   // fill("#"+ProjectStartpointColor);
   // ellipse((d*DayWith+(DayWith/2)), ypostion, ProjectStartpointWith, ProjectStartpointWith);
+  $(".Lines#"+Lines[i]["LineId"]+"").append('<div class="Dot_StartingPoint" style="margin-left: '+ (d*DayWith+(DayWith/2)) +'px;"></div>');
   //
   //
   // //Get second Dot of Time Spans if not Milestone
