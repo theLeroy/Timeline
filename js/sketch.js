@@ -35,7 +35,7 @@ LineHight = 100; //Hight of line in px
     } else {
       Errorfunction("We have got e problem with one Dot. We cant finde the Line wehre he has to go.");
     }
-    $(".L").append( '<div class="Lines" style="margin-top: '+ypostion+'px; background: #'+Lines[o]["BackgroundColor"]+'"></div>' );
+    $(".L").append( '<div id="'+Lines[o]["LineId"]+'" class="Lines" style="margin-top: '+ypostion+'px; background: #'+Lines[o]["BackgroundColor"]+'"></div>' );
   }
 
 
@@ -50,52 +50,56 @@ $( ".DayLines" ).each(function() {
 
 
 
-  // //Dysplay dots at days
-  // for (var i = 0; i < Data.length; i++) {
-  //   //Y Position and Lines
-  //   for (var o = 0; o < Lines.length; o++) {
-  //     //Finde the corect line
-  //     if (Data[i]["LineId"] == Lines[o]["LineId"]) {
-  //       //Test if the line is up or down from normal
-  //       if (Lines[o]["Position"] < 100) {
-  //         var ypostion = MidlelinePx - ((Lines[o]["Position"] - 100)*LineHight);
-  //       } else if (Lines[o]["Position"] > 100) {
-  //         var ypostion = MidlelinePx + ((100 - Lines[o]["Position"])*LineHight);
-  //       }  else if (Lines[o]["Position"] = 100) {
-  //         var ypostion = MidlelinePx;
-  //       } else {
-  //         Errorfunction("We have got e problem with one Dot. We cant finde the Line wehre he has to go.");
-  //       }
-  //     }
-  //   }
-  //   //X Position start Point
-  //   let d = Data[i]["StartDate"] - OldestDate;
-  //   d = d/1000/60/60/24;
+//Dysplay dots at days
+for (var i = 0; i < Data.length; i++) {
+  //Y Position and Lines
+  for (var o = 0; o < Lines.length; o++) {
+    //Finde the corect line
+    if (Data[i]["LineId"] == Lines[o]["LineId"]) {
+      //Test if the line is up or down from normal
+      if (Lines[o]["Position"] < 100) {
+        var ypostion = MidlelinePx - ((Lines[o]["Position"] - 100)*LineHight);
+      } else if (Lines[o]["Position"] > 100) {
+        var ypostion = MidlelinePx + ((100 - Lines[o]["Position"])*LineHight);
+      }  else if (Lines[o]["Position"] = 100) {
+        var ypostion = MidlelinePx;
+      } else {
+        Errorfunction("We have got e problem with one Dot. We cant finde the Line wehre he has to go.");
+      }
+    }
+  }
+  //X Position start Point
+  let d = Data[i]["StartDate"] - OldestDate;
+  d = d/1000/60/60/24;
+
+  //X Position end Point
+  let e = Data[i]["EndDate"] - OldestDate;
+  e = e/1000/60/60/24;
+
+  // //Connection line
+  // stroke("#"+ProjectTimeSpanColor);
+  // strokeWeight(ProjectTimeSpan);
+  // line((e*DayWith+(DayWith/2)), ypostion, (d*DayWith+(DayWith/2)), ypostion);
+  // noStroke();
+  // strokeWeight(1);
+
+    $(".DayLines#"+Lines[o]["LineId"]+"").append( '<div class="Dot_connecting_Line">'+ts.toLocaleDateString()+'</div>' );
+
+
+
   //
-  //   //X Position end Point
-  //   let e = Data[i]["EndDate"] - OldestDate;
-  //   e = e/1000/60/60/24;
+  // noStroke();
+  // fill("#"+ProjectStartpointColor);
+  // ellipse((d*DayWith+(DayWith/2)), ypostion, ProjectStartpointWith, ProjectStartpointWith);
   //
-  //   //Connection line
-  //   stroke("#"+ProjectTimeSpanColor);
-  //   strokeWeight(ProjectTimeSpan);
-  //   line((e*DayWith+(DayWith/2)), ypostion, (d*DayWith+(DayWith/2)), ypostion);
+  //
+  // //Get second Dot of Time Spans if not Milestone
+  // if (Data[i]["StartDate"] != Data[i]["EndDate"]) {
   //   noStroke();
-  //   strokeWeight(1);
-  //
-  //
-  //   noStroke();
-  //   fill("#"+ProjectStartpointColor);
-  //   ellipse((d*DayWith+(DayWith/2)), ypostion, ProjectStartpointWith, ProjectStartpointWith);
-  //
-  //
-  //   //Get second Dot of Time Spans if not Milestone
-  //   if (Data[i]["StartDate"] != Data[i]["EndDate"]) {
-  //     noStroke();
-  //     fill("#"+ProjectEndpointColor);
-  //     ellipse((e*DayWith+(DayWith/2)), ypostion, ProjectEndpointWith, ProjectEndpointWith);
-  //   }
+  //   fill("#"+ProjectEndpointColor);
+  //   ellipse((e*DayWith+(DayWith/2)), ypostion, ProjectEndpointWith, ProjectEndpointWith);
   // }
+}
 
 
 
