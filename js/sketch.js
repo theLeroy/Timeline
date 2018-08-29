@@ -98,8 +98,11 @@ for (var i = 0; i < Data.length; i++) {
 
 
   $(".Lines#"+Lines[i]["LineId"]+"").append('<div id="StartEndPointLineID_'+Data[i]["ObjectId"]+'" class="LineE Dot_EndPoint" style="margin-left: '+ (e*DayWith+(DayWith/2)) +'px;"></div>');
+<<<<<<< HEAD
+=======
   //
   //
+>>>>>>> 7ac83065b53b1e9169777f0264a75c93c31f8a2e
   // //Get second Dot of Time Spans if not Milestone
   // if (Data[i]["StartDate"] != Data[i]["EndDate"]) {
   //   noStroke();
