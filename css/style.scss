@@ -34,3 +34,24 @@
   font-family: $fontseting;
   font-size: 11px;
 }
+
+//-- Dots
+.LineE {
+  position: absolute !important;
+}
+.Dot_StartingPoint {
+  width: $ProjectStartpointWith;
+  height: $ProjectStartpointWith;
+  background-color: $ProjectStartpointColor;
+  border-radius: 100%;
+}
+.Dot_EndPoint {
+  border-radius: 100%;
+  width: $ProjectEndpointWith;
+  height: $ProjectEndpointWith;
+  background-color: $ProjectEndpointColor;
+}
+.Dot_connecting_Line {
+  height: $ProjectTimeSpanWith;
+  background-color: $ProjectTimeSpanColor;
+}
