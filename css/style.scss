@@ -1,18 +1,63 @@
-html,
-body {
-   width: 100%;
-   height: 100%;
-   padding: 0px;
-   margin: 0px;
-   overflow: hidden;
-}
+// Utilities
+@import "utilities/variables";
+// Settings
+@import "utilities/settings";
 
 .AddEvent {
-  position: absolute;
+  position: absolugte;
   bottom: 0px;
   right: 0px;
   background-color: red;
   margin: 20px;
   width: 20px;
   height: 20px;
+}
+
+
+.DayLines {
+  display: inline-block;
+  width: $DayWith;
+  background: none;
+  height: calc(100% - 5px);
+  border-right-width: $DayLinesWith;
+  border-right-color: $DayLinesColor;
+  border-right-style: solid;
+}
+.LineColor {
+  height: $LineHight;
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+}
+.LinesContainer {
+  height: $LineHight;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+.DayDatesTop {
+  text-align: center;
+  font-family: $fontseting;
+  font-size: 11px;
+}
+
+//-- Dots
+.LineE {
+  position: absolute !important;
+}
+.Dot_StartingPoint {
+  width: $ProjectStartpointWith;
+  height: $ProjectStartpointWith;
+  background-color: $ProjectStartpointColor;
+  border-radius: 100%;
+}
+.Dot_EndPoint {
+  border-radius: 100%;
+  width: $ProjectEndpointWith;
+  height: $ProjectEndpointWith;
+  background-color: $ProjectEndpointColor;
+}
+.Dot_connecting_Line {
+  height: $ProjectTimeSpanWith;
+  background-color: $ProjectTimeSpanColor;
 }
