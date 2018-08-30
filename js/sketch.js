@@ -20,7 +20,7 @@ LineHight = 100; //Hight of line in px
 DayWith = 50;
 
   //Generate Daylines
-  for (let i = 1; i < (yDate() - oDate()) / 86400000; i++) {
+  for (let i = 1; i < (((yDate() - oDate()) / 86400000)+15); i++) {
     $(".D").append( '<div class="DayLines"></div>' );
   }
 
@@ -36,7 +36,10 @@ DayWith = 50;
     } else {
       Errorfunction("We have got e problem with one Dot. We cant finde the Line wehre he has to go.");
     }
-    $(".L").append( '<div id="'+Lines[o]["LineId"]+'" class="Lines" style="margin-top: '+ypostion+'px; background: #'+Lines[o]["BackgroundColor"]+'"></div>' );
+    //Conteiner
+    $(".L").append( '<div id="LineC_'+Lines[o]["LineId"]+'" class="LinesContainer" style="margin-top: '+ypostion+'px;"></div>' );
+    //BackgroundColor
+    $('#LineC_'+Lines[o]["LineId"]+'').append( '<div id="'+Lines[o]["LineId"]+'" class="LineColor" style="background: #'+Lines[o]["BackgroundColor"]+'"></div>' );
   }
 
 
@@ -84,7 +87,7 @@ for (var i = 0; i < Data.length; i++) {
   // noStroke();
   // strokeWeight(1);
 
-  $(".Lines#"+Lines[i]["LineId"]+"").append('<div id="ConnectionLineID_'+Data[i]["ObjectId"]+'" class="LineE Dot_connecting_Line" style="margin-left: '+ (d*DayWith+(DayWith/2)) +'px; width: '+ ((e*DayWith+(DayWith/2)) - (d*DayWith+(DayWith/2))) +'px;"></div>');
+  $("#LineC_"+Lines[i]["LineId"]+"").append('<div id="ConnectionLineID_'+Data[i]["ObjectId"]+'" class="LineE Dot_connecting_Line" style="margin-left: '+ (d*DayWith+(DayWith/2)) +'px; width: '+ ((e*DayWith+(DayWith/2)) - (d*DayWith+(DayWith/2))) +'px;"></div>');
 
 
 
@@ -93,16 +96,13 @@ for (var i = 0; i < Data.length; i++) {
   // noStroke();
   // fill("#"+ProjectStartpointColor);
   // ellipse((d*DayWith+(DayWith/2)), ypostion, ProjectStartpointWith, ProjectStartpointWith);
-  $(".Lines#"+Lines[i]["LineId"]+"").append('<div id="StartPointLineID_'+Data[i]["ObjectId"]+'" class="LineE Dot_StartingPoint" style="margin-left: '+ (d*DayWith+(DayWith/2)) +'px;"></div>');
+  $("#LineC_"+Lines[i]["LineId"]+"").append('<div id="StartPointLineID_'+Data[i]["ObjectId"]+'" class="LineE Dot_StartingPoint" style="margin-left: '+ (d*DayWith+(DayWith/2)) +'px;"></div>');
 
 
 
-  $(".Lines#"+Lines[i]["LineId"]+"").append('<div id="StartEndPointLineID_'+Data[i]["ObjectId"]+'" class="LineE Dot_EndPoint" style="margin-left: '+ (e*DayWith+(DayWith/2)) +'px;"></div>');
-<<<<<<< HEAD
-=======
-  //
-  //
->>>>>>> 7ac83065b53b1e9169777f0264a75c93c31f8a2e
+  $("#LineC_"+Lines[i]["LineId"]+"").append('<div id="EndPointLineID_'+Data[i]["ObjectId"]+'" class="LineE Dot_EndPoint" style="margin-left: '+ (e*DayWith+(DayWith/2)) +'px;"></div>');
+
+
   // //Get second Dot of Time Spans if not Milestone
   // if (Data[i]["StartDate"] != Data[i]["EndDate"]) {
   //   noStroke();
