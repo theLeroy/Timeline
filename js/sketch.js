@@ -17,6 +17,7 @@ var ProjectEndpointWith;
 
 MidlelinePx = 450; //Pixel wehre the midle Line is
 LineHight = 100; //Hight of line in px
+DayWith = 50;
 
   //Generate Daylines
   for (let i = 1; i < (yDate() - oDate()) / 86400000; i++) {
@@ -83,7 +84,7 @@ for (var i = 0; i < Data.length; i++) {
   // noStroke();
   // strokeWeight(1);
 
-  $(".Lines#"+Lines[i]["LineId"]+"").append('<div class="Dot_connecting_Line"></div>');
+  $(".Lines#"+Lines[i]["LineId"]+"").append('<div id="ConnectionLineID_'+Data[i]["ObjectId"]+'" class="LineE Dot_connecting_Line" style="margin-left: '+ (d*DayWith+(DayWith/2)) +'px; width: '+ ((e*DayWith+(DayWith/2)) - (d*DayWith+(DayWith/2))) +'px;"></div>');
 
 
 
@@ -92,7 +93,11 @@ for (var i = 0; i < Data.length; i++) {
   // noStroke();
   // fill("#"+ProjectStartpointColor);
   // ellipse((d*DayWith+(DayWith/2)), ypostion, ProjectStartpointWith, ProjectStartpointWith);
-  $(".Lines#"+Lines[i]["LineId"]+"").append('<div class="Dot_StartingPoint" style="margin-left: '+ (d*DayWith+(DayWith/2)) +'px;"></div>');
+  $(".Lines#"+Lines[i]["LineId"]+"").append('<div id="StartPointLineID_'+Data[i]["ObjectId"]+'" class="LineE Dot_StartingPoint" style="margin-left: '+ (d*DayWith+(DayWith/2)) +'px;"></div>');
+
+
+
+  $(".Lines#"+Lines[i]["LineId"]+"").append('<div id="StartEndPointLineID_'+Data[i]["ObjectId"]+'" class="LineE Dot_EndPoint" style="margin-left: '+ (e*DayWith+(DayWith/2)) +'px;"></div>');
   //
   //
   // //Get second Dot of Time Spans if not Milestone
